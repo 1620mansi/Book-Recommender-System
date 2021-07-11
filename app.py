@@ -6,11 +6,11 @@ import streamlit as st
 hp = Help()
 st.sidebar.title('Book Recommender System')
 books = pickle.load(open('model/books (1).pkl', 'rb'))
-add_select_box = st.sidebar.selectbox("Select a option", ['Recommendation of books', 'Find books'])
+add_select_box = st.sidebar.selectbox("Select an option", ['Recommendation of books', 'Find books'])
 
 if add_select_box == 'Recommendation of books':
     selected_book = st.sidebar.selectbox("Type or select a book from the dropdown", books['title'])
-    selected_number = st.sidebar.radio("How many books are you want for recommendation?", (2, 4, 6, 8, 10))
+    selected_number = st.sidebar.radio("How many books do you want for recommendation?", (1, 2, 3, 4, 5))
 
     if st.sidebar.button("Show Recommendation"):
         title_list, authors_list, year_list, image_url_list, rating_list = hp.fetch_data(selected_book, selected_number)
